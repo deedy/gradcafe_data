@@ -50,6 +50,8 @@ DEGREE = [
   (' M Eng', 'MEng'),
   (' MEng', 'MEng'),
   (' M.Eng', 'MEng'),
+  (' MS', 'MS'),
+  (' MA', 'MA'),
   (' Masters', 'MS'),
   (' PhD', 'PhD'),
   (' MBA', 'MBA'),
@@ -82,13 +84,15 @@ def process(index, col):
   try:
     major = None
     progtext = col[1].text.strip().encode('ascii', 'ignore')
-    for (p, nam) in PROGS:
-      if p.lower() in progtext.lower():
-        major = nam
-        break
-    if not major:
-      major = 'Other'
+    if not ',' in progtext:
+      print 'no caomma'
+      Tracer()()
       errlog['major'].append((index, col))
+    else:
+      parts = progtext.split(',')
+      major = parts[0].strip()
+      progtext = ' '.join(parts[1:])
+
 
     degree = None
     for (d, deg) in DEGREE:
@@ -207,11 +211,11 @@ def process(index, col):
   except:
     Tracer()()
   res = [inst, major, degree, season, decisionfin, method, decdate, decdate_ts, gpafin, grev, grem, grew, new_gre, sub, status, date_add, date_add_ts,  comment]
-  # print res
+  print res
   return res
 
 data = []
-for year in range(1, 113):
+for year in range(1, 1093):
   with open('data/{0}.html'.format(year), 'r') as f:
     soup = BeautifulSoup(f.read())
     tables = soup.findAll('table', class_='results')
