@@ -5,7 +5,7 @@ cs/ - Contains all results with the query "computer*" - 27,822 results
 ### Schema
 
 
-The schema of the `all.csv` file which contains all the content on GradCafe and the `all` table in `all.sql` is:
+The schema of the `all.csv` file which contains all the content on GradCafe and the `allgrad` table in `all.sql` is:
 
 | Column Name        | Type                | Description                                                                                                                                                                                                  |
 |--------------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ The schema of the `all.csv` file which contains all the content on GradCafe and 
 | status             | TEXT(28)            | The status of the candidate. Can take on 4 different values - "American", "International", "International with US degree" and "Other".                                                                       |
 | post_data          | TEXT(10)            | The date on which this report was posted by the candidate in the form "dd-mm-yyyy".                                                                                                                          |
 | post_timestamp     | INTEGER             | The timestamp since epoch that the post was made.                                                                                                                                                            |
-| comments           | BLOB                | All user added comments to the post he submitted 
+| comments           | BLOB                | All user added comments to the post he submitted
 
 
 The schema of the `cs.csv` file, which contain all results that have word beginning with "computer", and the `computer` table in `cs.sql` is:
@@ -52,4 +52,4 @@ The schema of the `cs.csv` file, which contain all results that have word beginn
 | status             | TEXT(28)            | The status of the candidate. Can take on 4 different values - "American", "International", "International with US degree" and "Other".                                                                       |
 | post_data          | TEXT(10)            | The date on which this report was posted by the candidate in the form "dd-mm-yyyy".                                                                                                                          |
 | post_timestamp     | INTEGER             | The timestamp since epoch that the post was made.                                                                                                                                                            |
-| comments           | BLOB                | All user added comments to the post he submitted 
+| comments           | BLOB                | All user added comments to the post he submitted
