@@ -1,6 +1,7 @@
 # Gradcafe Data
 
 cs/ - Contains all results with the query "computer*" - 27,822 results
+all/ - Contains all results with the query "u*" (experimentally the most you can get with one query) - 271,807 results
 
 ### Schema
 
