@@ -15,7 +15,7 @@ valids = set(trans.values())
 valids = sorted(list(valids), key=lambda x:-len(x))
 
 data = pd.read_csv(csv_name, sep=',', header = None, names = ['rowid', 'uni_name', 'major', 'degree', 'season', 'decision', 'decision_method', 'decision_date', 'decision_timestamp', 'ugrad_gpa','gre_verbal','gre_quant','gre_writing', 'is_new_gre', 'gre_subject', 'status', 'post_date', 'post_timestamp', 'comments'])
-dl = data.values.tolist()
+dl = map(list, data.values)
 
 extra_dat = []
 count = 0
@@ -24,6 +24,8 @@ for i, dat in enumerate(data['uni_name']):
   if not dat.lower() in trans:
     flag = False
     for v in valids:
+      if not len(v) >= 3:
+        continue
       if v in dat:
         flag = True
         dl[i][0] = v
